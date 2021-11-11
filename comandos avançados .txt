@@ -1,0 +1,40 @@
+enable (vai para o modo de execução)
+
+	configure terminal (modo de configuração global)
+	
+		hostname sw-0? (número de acordo com o switch)
+		
+			service password-encryption (para criptografar as senhas)
+			
+				no ip domain-lookup (para desativar os 60 segundos quando se erra algum comando)
+				
+					banner motd #AVISO: Acesso autorizado apenas para funcionarios#
+					
+						enable secret ??? (adicionar uma senha para entrar no comando enable)
+						
+							username senac secret(secret é mais seguro do que password) 123@senac (para criar um usuario)
+							
+								username tatuape password 123@senac 
+									
+									line console 0 (para entrar na configuração de linha, no caso um cabo)
+										
+										login local (quando alguem se conectar no switch, vai procurar os usuarios locais)
+										
+											logging synchronous 
+											
+												password ??(para criar uma senha padrao, se nao houver usuarios, se houver ele ja vai procurar os usuarios)
+													
+													exec-timeout ? ?? (para definir um tempo em que vai se deslogar de tudo caso voce fiquei inativo)
+													
+												exit
+												
+											exit
+											
+										copy running_config startup-config (para salvar)
+								
+									disable 		
+							
+								exit											
+								
+
+	show running_config para saber se as configurações que aplicamos está certa
