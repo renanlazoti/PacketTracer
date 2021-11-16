@@ -1,0 +1,35 @@
+
+	MAC Address: Usar para se comunicar entre os switchs só pode existir UM na rede
+				não pode existir DOIS iguais
+				
+	Endereço IPv4: Usar nos sistemas operacionais para se comunicar 
+	Hostname:
+	
+	Identifição automatica de midia, todos os switchs atuais possuem essa tecnologia, por isso nao usamos mais cabos crossover
+	
+	Broadcast, você está praticamente gritando para a rede inteira, então todos receberam as informações que talvez voce queria mandar so pra uma pessoa
+	
+	Switch ou roteador tem a função de fazer ninguem colidir com ninguem na rede e causar lentidão, e so manda informação para quem tem que mandar
+	
+	Switch nao possui DNS
+	
+	Para fazer um backup das configurações do switch, acessar pelo desktop o prompt de comando 
+	
+		ssh -l (usuario) (ip do switch)
+			show flash: (mini hd que tem dentro do switch ou roteador)
+				copy running-config startup-config
+					copy running-config flash:
+						show flash: para confirmar se deu tudo certo
+						
+		Feito
+		
+		copy running-config tftp: (ip do servidor)
+			para confirmar se deu tudo certo, vá no tftp do switch e procure sw-01 config
+			
+		Feito
+		
+		show running-config
+			selecione tudo e copie (desde a primeira ! até o end)
+				cole em um bloco de notas
+					dir pra ver se deu certo
+		
