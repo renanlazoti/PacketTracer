@@ -32,4 +32,15 @@
 			selecione tudo e copie (desde a primeira ! até o end)
 				cole em um bloco de notas
 					dir pra ver se deu certo
+					
+					
+	
+	
+	
+	Todo e qualquer equipamento que vai fornecer serviços de rede precisa de endereço ip static
+	e todos que vao usufruir podem ter static ou dinamico (DHCP)
+	
+	só pode existir um servidor dhcp na rede, se nao da conflito 
+	
+	WLC configurador de rede sem fio
 		
