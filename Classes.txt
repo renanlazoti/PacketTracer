@@ -67,4 +67,6 @@
 				erase startup-config
 				reload 
 				
+
+		tracert pra descobrir a rota que acontece até chegar ao destino 
 		
