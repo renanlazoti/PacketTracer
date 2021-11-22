@@ -1,0 +1,70 @@
+	 Classes de endereços IPv4
+	 classe morreu na decada de 90
+	 
+	 Classe A 0.0.0.0-->127.255.255.255
+	 Classe B 128.0.0.0-->191.255.255.255
+	 Classe C 192.0.0.0-->223.255.255.255
+	 Classe D 224.0.0.0-->239.255.255.255
+	 Classe E 240.0.0.0-->247.255.255.255
+	 
+	 Eles separaram para ficar mais facil de ler
+	 Jamais iremos usar endereços que comecem com 127
+	 Qualquer endereços ip que comece com 169 também nao se usa 
+	 Qualquer endereços ip que comece com 224 também nao se usa
+
+	 Dentro dessas classes, sao divididas em dois blocos
+	 
+	 Classes privadas= só funciona internamente, e pode se usar quantas vezes quiser pois nao da conflito 
+	 
+	 Classe A 10.0.0.0-->10.255.255.255
+	 Mascara de rede padrao da classe A é 255.0.0.0/8 pois possue um octeto(8 bits) cheio 
+	 Classe B 172.16.0.0--->172.31.255.255
+	 Mascara de rede padrao da classe B é 255.255.0.0/16 pois possue dois octetos(8 bits cada) cheios 
+	 Classe C 192.168.0.0-->192.168.255.255
+	 Mascara de rede padrao da classe C é 255.255.255.0/24 pois possue três octetos(8 bits cada) cheios 
+	 
+	 Switch só entende MAC(Voce fisico) 
+	 Ou seja, se tiver dois computadores na mesma rede 
+	 
+	 1 computador 				2 computador
+	 192.168.0.1				192.168.1.1
+
+	 Logicamente eles estão conectados, porém fisicamente não 
+	 Então precisariamos de um tradutor, no caso o Gateway 
+	 
+	 
+	 
+		enable
+		 configure terminal 
+			interface gigabiteternet 0/1
+			description interface de WAN
+			ip address 10.0.0.2
+			255.255.255.252
+			no shutdown 
+			end
+		write 
+		
+		enable
+			show ip interface brief 
+			
+		enable
+		 configure terminal
+			ip route 192.168.?.0 255.255.255.0 10.0.0.1
+		 write
+			
+			
+			show ip interface brief  pra ver se as interfaces estao configuradas da forma certa
+			show ip route static pra verificar a rota statica
+			ping 192.168.0.254
+			ping 10.0.0.1
+			ping 10.0.0.2
+			ping 192.168.1.254
+			ping 192.168.1.10
+			
+			
+			Para resetar os comandos 
+			enable
+				erase startup-config
+				reload 
+				
+		
